@@ -1,0 +1,61 @@
+{
+  "name": "dsh-fs-reobserve",
+  "version": "1.0.0",
+  "description": "Middle ground for @deepseek-ai/dsh-fs-observation-policy: after a session's OWN bash/shell command, re-observe the files that session had observed, so self-inflicted out-of-band writes stop tripping FS_STALE_VERSION while third-party writes still do.",
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib",
+    "docs",
+    "skills",
+    "cordis.patch.yml",
+    "README.md",
+    "LICENSE",
+    "CHANGELOG.md"
+  ],
+  "engines": {
+    "node": ">=22.5"
+  },
+  "scripts": {
+    "check": "node --check lib/index.js && echo 'all files OK'",
+    "test": "node --test test/*.test.mjs"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.1.1-rc.1"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/dsh-fs": "*",
+    "@deepseek-ai/dsh-llm": "*",
+    "@deepseek-ai/schemastery": "*"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Luca Tzekos",
+    "url": "https://jobopportunitiesapi.org"
+  },
+  "homepage": "https://github.com/lucagiftzek/dsh-fs-reobserve#readme",
+  "bugs": {
+    "url": "https://github.com/lucagiftzek/dsh-fs-reobserve/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lucagiftzek/dsh-fs-reobserve.git"
+  },
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "fs-observation-policy",
+    "bash",
+    "agent-tools"
+  ]
+}

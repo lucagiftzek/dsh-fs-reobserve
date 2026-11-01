@@ -1,0 +1,33 @@
+# dsh-fs-reobserve bundle patch.
+#
+# Inserts ONE host row so the composition mounts this package. There is no
+# browser half: the plugin is pure host-side bookkeeping over events the
+# filesystem tools already emit.
+#
+# WHAT IT IS FOR
+# --------------
+# @deepseek-ai/dsh-fs-observation-policy learns a file's version ONLY from the
+# instrumented read/write/edit tools, which emit 'fs/observed'. bash, shell and
+# subprocess emit nothing (dsh-tool-bash, dsh-shell and dsh-subprocess-local
+# contain no reference to the event). So a session that modifies a file through
+# bash leaves a stale observation, and its next edit of that file is refused
+# with FS_STALE_VERSION -- an error caused entirely by the session's own action.
+#
+# This row closes that gap and nothing else: after one of THIS session's own
+# bash/shell calls settles, it re-stats the targets that session had observed
+# and re-emits 'fs/observed' at their current version. Changes made by anything
+# else (cron, another agent, a desktop editor) are never re-observed, so the
+# guard still fires on them -- which is the protection actually worth keeping.
+#
+# KILL SWITCH without uninstalling: add to ~/.dsh/profiles/web/cordis.patch.yml
+#   - id: fs-reobserve
+#     disabled: true
+#
+# TUNING (settings.yaml, namespace 'fs-reobserve'):
+#   tools:          [bash, shell]   out-of-band tools to react to
+#   notify:         true            append a notice to the tool result
+#   maxNotifyPaths: 4               paths named before eliding
+
+- insert:
+    - id: fs-reobserve
+      name: 'dsh-fs-reobserve'
