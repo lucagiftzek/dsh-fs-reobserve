@@ -1,9 +1,12 @@
 # dsh-fs-reobserve
 
+[![npm](https://img.shields.io/npm/v/%40lucagiftzek%2Fdsh-fs-reobserve?label=npm)](https://www.npmjs.com/package/@lucagiftzek/dsh-fs-reobserve)
+
 Ends self-inflicted stale-file errors after an agent's own shell commands.
 
 ```bash
-dsh plugin --profile web add github:lucagiftzek/dsh-fs-reobserve
+dsh plugin --profile web add @lucagiftzek/dsh-fs-reobserve
+# or from GitHub: dsh plugin --profile web add github:lucagiftzek/dsh-fs-reobserve
 # then restart dsh web
 ```
 
@@ -69,8 +72,11 @@ profile's `cordis.patch.yml`); a `settings.yaml` section is not read. Example in
 
 ## Install
 
+Install from npm: `dsh plugin --profile web add @lucagiftzek/dsh-fs-reobserve`, or from GitHub: `dsh plugin --profile web add github:lucagiftzek/dsh-fs-reobserve`.
+
 ```bash
-dsh plugin --profile web add github:lucagiftzek/dsh-fs-reobserve
+dsh plugin --profile web add @lucagiftzek/dsh-fs-reobserve
+# or from GitHub: dsh plugin --profile web add github:lucagiftzek/dsh-fs-reobserve
 # then restart `dsh web`; the log shows "fs-reobserve: armed ..." once
 ```
 

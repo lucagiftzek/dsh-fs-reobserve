@@ -30,4 +30,4 @@
 
 - insert:
     - id: fs-reobserve
-      name: 'dsh-fs-reobserve'
+      name: '@lucagiftzek/dsh-fs-reobserve'

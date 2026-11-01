@@ -1,5 +1,5 @@
 {
-  "name": "dsh-fs-reobserve",
+  "name": "@lucagiftzek/dsh-fs-reobserve",
   "version": "1.0.0",
   "description": "Middle ground for @deepseek-ai/dsh-fs-observation-policy: after a session's OWN bash/shell command, re-observe the files that session had observed, so self-inflicted out-of-band writes stop tripping FS_STALE_VERSION while third-party writes still do.",
   "type": "module",
@@ -51,11 +51,14 @@
     "url": "git+https://github.com/lucagiftzek/dsh-fs-reobserve.git"
   },
   "keywords": [
+    "agent-tools",
+    "bash",
+    "deepseek-harness",
     "dsh",
     "dsh-plugin",
-    "deepseek-harness",
-    "fs-observation-policy",
-    "bash",
-    "agent-tools"
-  ]
+    "fs-observation-policy"
+  ],
+  "publishConfig": {
+    "access": "public"
+  }
 }

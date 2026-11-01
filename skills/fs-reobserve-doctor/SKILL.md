@@ -18,7 +18,7 @@ by anything else. It has no routes, no tools and no UI.
 
 ## 0. Facts (read-only)
 1. Plugin dir:
-   `node -p "require('path').dirname(require.resolve('dsh-fs-reobserve/package.json',{paths:[(process.env.DSH_HOME||require('os').homedir()+'/.dsh')+'/profiles/web']}))"`
+   `node -p "require('path').dirname(require.resolve('@lucagiftzek/dsh-fs-reobserve/package.json',{paths:[(process.env.DSH_HOME||require('os').homedir()+'/.dsh')+'/profiles/web']}))"`
    Docs: `<plugin dir>/docs/TROUBLESHOOTING.md` and `docs/ERRORS.md`.
 2. DSH version: `dsh --version`.
 3. Log lines (ask the human where DSH logs if not a systemd unit):
